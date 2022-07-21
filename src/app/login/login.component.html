@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <h2>Login Form</h2>
+        <form [formGroup]="myForm" class="justify-content-center" (ngSubmit)="onSubmitForm()">
+
+            <!-- <div class="form-group">
+    <label>Email:</label>
+    <input type="email" class="form-control" formControlName="email"
+required [ngClass]="{'is -invalid':isSubmitted && f.email.errors}" placeholder="Email is required">
+<div *ngIf="isSubmitted && f.email.errors?.required" class="invalid-feedback"><span style="color: red;"> Email is required</span> </div>
+<div *ngIf="isSubmitted && f.email.errors?.pattern" class="invalid-feedback"> Enter Valid Email</div> -->
+
+            <div class="form-group">
+                <label>Email :-<span style="color: red">*</span> </label>
+                <input type="email" class="form-control" formControlName="email"
+                    placeholder="Please enter your name here" required
+                    [ngClass]="{ 'is-invalid': isSubmitted && f.email.errors }" />
+                <div *ngIf="isSubmitted && f.email.errors?.pattern" class="invalid-feedback">
+                    Email is not valid
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" formControlName="password" required
+                    [ngClass]="{'is-invalid':isSubmitted && f.password.errors}" placeholder="Password is required">
+                <div *ngIf="isSubmitted && f.password.errors?.required" class="invalid-feedback"><span
+                        style="color: red;"> Password Is Required*</span></div>
+                <div *ngIf="isSubmitted && f.password.errors?.minlength" class="invalid-feedback"><span
+                    style="color: red;"> Password at least 8
+                    character.</span></div>
+                </div>
+
+            <div class="form-group">
+                <input type="submit" value="login" class="btn btn-info mt-3">
+            </div>
+        </form>
+    </div>
+</section>
